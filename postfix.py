@@ -9,6 +9,8 @@ Let the given expression be “2 3 1 * + 9 -“. We scan all elements one by one
 6) Scan ‘9’, it’s a number, we push it to the stack. Stack now becomes ‘5 9’.
 7) Scan ‘-‘, it’s an operator, pop two operands from stack, apply the – operator on operands, we get 5 – 9 which results in -4. We push the result ‘-4’ to stack. Stack now becomes ‘-4’.
 8) There are no more elements to scan, we return the top element from stack (which is the only element left in stack).
+
+Handled only positive cases.
 """
 
 
@@ -25,15 +27,13 @@ class PostfixEvaluate(object):
                 self.stack.append(item)
             else:
                 item1, item2, = self.pop_last_two_items()
-                print item1, item2
                 self.stack.append(self.do_operation(item1, item2, item))
-
         return self.stack
 
     def pop_last_two_items(self):
         item1 = self.stack.pop()
         item2 = self.stack.pop()
-        return item1, item2
+        return (item1, item2)
 
     def do_operation(self, item1, item2, item):
         return str(eval(item2 + item + item1))
@@ -41,6 +41,6 @@ class PostfixEvaluate(object):
 
 
 if __name__ == "__main__":
-    exp = "231*+9--"
+    exp = "231*+9-"
     result = PostfixEvaluate(exp)
-    print result
+    print result.stack[0]
