@@ -1,2 +1,3 @@
 # Python-Solutions
-It includes solutions from: LeetCode, HackerRand, Byte-by-Byte, CodeWars
+This repo contains solutions from LeetCode.
+(https://leetcode.com/nilaygpt/)
