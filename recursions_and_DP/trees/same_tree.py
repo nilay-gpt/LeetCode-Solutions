@@ -9,13 +9,13 @@ from collections import deque
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         
-        # early return approach approch
+        # early return approch
         if p and q:
             return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         
         return p is q
         
-        # BFS approch, mentain output for both the tree and compare the output
+        # BFS approch
 #         if not (p or q): return True
 #         if not (p and q): return False
 #         return self.return_node_list(p) == self.return_node_list(q)
